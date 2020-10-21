@@ -13,14 +13,19 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_solat"
         android:name="com.sirem.jadwalsolat.ui.solat.SolatFragment"
-        android:label="@string/title_dashboard"
+        android:label="Solat"
         tools:layout="@layout/fragment_solat" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_quran"
         android:name="com.sirem.jadwalsolat.ui.quran.QuranFragment"
-        android:label="@string/title_notifications"
+        android:label="Quran"
         tools:layout="@layout/fragment_quran" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.sirem.jadwalsolat.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.sirem.jadwalsolat.ui.solat
+package com.sirem.jadwalsolat.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,22 +9,21 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.sirem.jadwalsolat.R
-import com.sirem.jadwalsolat.ui.profile.ProfileViewModel
 
-class SolatFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
-    private lateinit var solatViewModel: ProfileViewModel
+    private lateinit var profileViewModel: ProfileViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        solatViewModel =
+        profileViewModel =
             ViewModelProviders.of(this).get(ProfileViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_solat, container, false)
         val textView: TextView = root.findViewById(R.id.text_dashboard)
-        solatViewModel.text.observe(viewLifecycleOwner, Observer {
+        profileViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
