@@ -183,4 +183,12 @@ class HomeFragment : Fragment() {
         return "$namePray $time"
     }
 
+
+    fun getCalculatedDate(dateFormat: String?, days: Int): String? {
+        val cal = Calendar.getInstance()
+        val s = SimpleDateFormat(dateFormat)
+        cal.add(Calendar.DAY_OF_YEAR, days)
+        return s.format(Date(cal.timeInMillis))
+    }
+
 }

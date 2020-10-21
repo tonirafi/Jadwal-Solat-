@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sirem.jadwalsolat.R
 import com.sirem.jadwalsolat.ui.home.DataAzan
 import kotlinx.android.synthetic.main.item_time_pray.view.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class ListPrayAdapter(private var ctx: Context) :
@@ -62,6 +64,24 @@ class ListPrayAdapter(private var ctx: Context) :
                         data.namaWaktu.equals("Isya") -> {
                             img_icon_pray.setImageResource(R.drawable.ic_isa)
                         }
+                    }
+
+
+
+                    val date: Date = Date()
+                    val cal = Calendar.getInstance()
+                    cal.time = date
+                    val hours = cal.get(Calendar.HOUR_OF_DAY)
+                    if(data.jam!! > hours){
+                        tv_name_pray.setTextColor(resources.getColor(R.color.colorPrimary))
+                        tv_time_pray.setTextColor(resources.getColor(R.color.colorPrimary))
+                        img_icon_pray.setColorFilter(resources.getColor( R.color.colorPrimary), android.graphics.PorterDuff.Mode.SRC_IN)
+                        img_status.setColorFilter(resources.getColor( R.color.colorPrimary), android.graphics.PorterDuff.Mode.SRC_IN)
+                    }else{
+                        tv_name_pray.setTextColor(resources.getColor(R.color.blue))
+                        tv_time_pray.setTextColor(resources.getColor(R.color.blue))
+                        img_icon_pray.setColorFilter(resources.getColor( R.color.blue), android.graphics.PorterDuff.Mode.SRC_IN)
+                        img_status.setColorFilter(resources.getColor( R.color.blue), android.graphics.PorterDuff.Mode.SRC_IN)
                     }
 
                     tv_name_pray.text=data.namaWaktu
